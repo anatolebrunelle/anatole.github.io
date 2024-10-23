@@ -51,7 +51,7 @@ h1{
     text-align : center;
     margin-top: 200px;
 }
-#divconteur {
+#divcompteur {
     text-align: center;
     margin-top: 10px;
 }
@@ -62,7 +62,7 @@ h1{
     margin-right: 10px;
 }
 
-#conteur {
+#compteur {
     font-size: 20px;
     line-height: 1em;
 }
