@@ -1,0 +1,14 @@
+<html>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="java.js"></script>
+    <head>
+        <title>Anatole</title>
+    </head>
+    <body>
+        <h1 id="anatole">Anatole</h1>
+        <div id="divconteur">
+            <button id="increment">Incrémenter</button>
+            <p id="conteur">0</p>
+        </div>
+    </body>
+</html>                                                                     
