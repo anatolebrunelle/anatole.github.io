@@ -58,7 +58,7 @@ div{
     margin-top: 10px;
 }
 
-#increment {
+#plus,#moins {
     font-size: 20px;
     padding: 10px;
     margin-right: 10px;
@@ -66,6 +66,11 @@ div{
 }
 
 #compteur {
+    font-size: 20px;
+    line-height: 1em;
+	z-index: 2;
+}
+#compteur2 {
     font-size: 20px;
     line-height: 1em;
 	z-index: 2;
