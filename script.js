@@ -8,52 +8,63 @@ window.onload = function() {
         return color;
     }
     document.getElementById('anatole').style.color = couleur();
-    compteur = localStorage.getItem('compteur') ? parseInt(localStorage.getItem('compteur')) : 0;
-    document.getElementById('compteur').innerText = compteur;
-    vitesse = 0.6;
+    stockcompteur = parseInt(localStorage.getItem('stockcompteur')) || 0;
+    document.getElementById('compteur').innerText = stockcompteur; 
 
+    vitesse = parseFloat(localStorage.getItem('vitesse')) || (0.7);
+    document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+
+    console.log('vitesse', vitesse)
     document.getElementById('plus').onclick = function() {
-        compteur += 1;
-        document.getElementById('compteur').innerText = compteur;
-        
-        vitesse -= 0.05;
-        if(vitesse<=0){
-        vitesse=0.08
-        }   
-        document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+        if (stockcompteur < 20) {
+            stockcompteur += 1;
+            document.getElementById('compteur').innerText = stockcompteur;
+
+            vitesse -= 0.03;
+            if (vitesse < 0.1) {
+                vitesse = 0.1;
+            }
+            document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+
+            localStorage.setItem('stockcompteur', stockcompteur);
+            localStorage.setItem('vitesse', vitesse);
+        }
     };
 
     document.getElementById('moins').onclick = function() {
-        if(compteur > 0) {
-            compteur = compteur - 1;
-        document.getElementById('compteur').innerText = compteur;
-        
-        vitesse += 0.05; 
-        document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+        if (stockcompteur > 0) {
+            stockcompteur -= 1;
+            document.getElementById('compteur').innerText = stockcompteur;
+
+            vitesse += 0.03;
+            document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+
+            localStorage.setItem('stockcompteur', stockcompteur);
+            localStorage.setItem('vitesse', vitesse);
         }
-        
     };
+
     function Fdistance(x1, y1, x2, y2) {
-        const dx = x2 - x1;
-        const dy = y2 - y1;
+        dx = x2 - x1;
+        dy = y2 - y1;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
     document.addEventListener('mousemove', (event) => {
-        const boule = document.getElementById('boule');
-        const coords = boule.getBoundingClientRect();
-        const bouleX = coords.left + coords.width / 2;
-        const bouleY = coords.top + coords.height / 2;
-        const sourieX = event.clientX;
-        const sourieY = event.clientY;
-        const distance = Fdistance(sourieX, sourieY, bouleX, bouleY);
-        
-        if (distance < 100) {
-            const largeur = document.documentElement.clientWidth - boule.offsetWidth;
-            const hauteur = document.documentElement.clientHeight - boule.offsetHeight;
+        boule = document.getElementById('boule');
+        coords = boule.getBoundingClientRect();
+        bouleX = coords.left + coords.width / 2;
+        bouleY = coords.top + coords.height / 2;
+        sourieX = event.clientX;
+        sourieY = event.clientY;
+        distance = Fdistance(sourieX, sourieY, bouleX, bouleY);
 
-            const randomX = Math.floor(Math.random() * largeur);
-            const randomY = Math.floor(Math.random() * hauteur);
+        if (distance < 100) {
+            largeur = document.documentElement.clientWidth - boule.offsetWidth;
+            hauteur = document.documentElement.clientHeight - boule.offsetHeight;
+
+            randomX = Math.floor(Math.random() * largeur);
+            randomY = Math.floor(Math.random() * hauteur);
             boule.style.left = `${randomX}px`;
             boule.style.top = `${randomY}px`;
         }
