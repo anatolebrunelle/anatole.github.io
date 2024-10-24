@@ -9,7 +9,7 @@ window.onload = function() {
     }
     document.getElementById('anatole').style.color = couleur();
     
-    let compteur = 0;
+    compteur = 0;
     let vitesse = 0.6;
 
     document.getElementById('increment').onclick = function() {
