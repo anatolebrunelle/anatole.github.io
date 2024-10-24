@@ -1,7 +1,7 @@
 window.onload = function() {
     function couleur() {
-        color = "#";
-        couleur = "ABCDEF123456789";
+        let color = "#";
+        const couleur = "ABCDEF123456789";
         for (let i = 0; i < 6; i++) {
             color += couleur[Math.floor(Math.random() * couleur.length)];
         }
@@ -10,30 +10,40 @@ window.onload = function() {
     document.getElementById('anatole').style.color = couleur();
     
     let compteur = 0;
+    let vitesse = 0.6;
+
     document.getElementById('increment').onclick = function() {
         compteur += 1;
         document.getElementById('compteur').innerText = compteur;
+        
+        vitesse -= 0.05;
+        if(vitesse<=0){
+        vitesse=0.08
+        }   
+        document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
     };
 
     function Fdistance(x1, y1, x2, y2) {
-        dx = x2 - x1;
-        dy = y2 - y1;
+        const dx = x2 - x1;
+        const dy = y2 - y1;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
     document.addEventListener('mousemove', (event) => {
-        boule = document.getElementById('boule');
-        coords = boule.getBoundingClientRect();
-        bouleX = coords.left + coords.width / 2;
-        bouleY = coords.top + coords.height / 2;
-        sourieX = event.clientX;
-        sourieY = event.clientY;
-        distance = Fdistance(sourieX, sourieY, bouleX, bouleY);
+        const boule = document.getElementById('boule');
+        const coords = boule.getBoundingClientRect();
+        const bouleX = coords.left + coords.width / 2;
+        const bouleY = coords.top + coords.height / 2;
+        const sourieX = event.clientX;
+        const sourieY = event.clientY;
+        const distance = Fdistance(sourieX, sourieY, bouleX, bouleY);
+        
         if (distance < 100) {
-            largeur = document.documentElement.clientWidth - boule.offsetWidth;
-            hauteur = document.documentElement.clientHeight - boule.offsetHeight;
-            randomX = Math.floor(Math.random() * largeur);
-            randomY = Math.floor(Math.random() * hauteur);
+            const largeur = document.documentElement.clientWidth - boule.offsetWidth;
+            const hauteur = document.documentElement.clientHeight - boule.offsetHeight;
+
+            const randomX = Math.floor(Math.random() * largeur);
+            const randomY = Math.floor(Math.random() * hauteur);
             boule.style.left = `${randomX}px`;
             boule.style.top = `${randomY}px`;
         }
