@@ -63,6 +63,9 @@ div{
     margin-right: 10px;
 	z-index: 2;
     margin-left: 30em;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 #plus, #moins {
     font-size: 20px;
@@ -100,7 +103,7 @@ div{
 #time{
     font-size: 100px;                       
     text-align : center;
-    margin-top: 125px;
+margin-top: 1.25em;
     position: relative;
     z-index: 7;
 }
