@@ -57,8 +57,14 @@ div{
     text-align: center;
     margin-top: 10px;
 }
-
-#plus,#moins {
+#heure {
+    font-size: 20px;
+    padding: 10px;
+    margin-right: 10px;
+	z-index: 2;
+    margin-left: 30em;
+}
+#plus, #moins {
     font-size: 20px;
     padding: 10px;
     margin-right: 10px;
@@ -90,4 +96,15 @@ div{
 	left:   0;
 	transition: left 0.8s ease, top 0.8s ease;
 	z-index: 2;
-}   
+} 
+#time{
+    font-size: 100px;                       
+    text-align : center;
+    margin-top: 125px;
+    position: relative;
+    z-index: 7;
+}
+img {
+    width : 100px;
+    height : 100px;
+    }
