@@ -14,5 +14,6 @@ function checkTime(i) {
     }
     return i;
 }
+Temps()
 setInterval(Temps, 1000);
 Temps();
