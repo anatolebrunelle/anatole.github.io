@@ -8,11 +8,11 @@ window.onload = function() {
         return color;
     }
     document.getElementById('anatole').style.color = couleur();
-    
-    compteur = 0;
+    let compteur = localStorage.getItem('compteur') ? parseInt(localStorage.getItem('compteur')) : 0;
+    document.getElementById('compteur').innerText = compteur;
     let vitesse = 0.6;
 
-    document.getElementById('increment').onclick = function() {
+    document.getElementById('plus').onclick = function() {
         compteur += 1;
         document.getElementById('compteur').innerText = compteur;
         
@@ -23,6 +23,16 @@ window.onload = function() {
         document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
     };
 
+    document.getElementById('moins').onclick = function() {
+        if(compteur > 0) {
+            compteur = compteur - 1;
+        document.getElementById('compteur').innerText = compteur;
+        
+        vitesse += 0.05; 
+        document.getElementById('boule').style.transition = `left ${vitesse}s ease, top ${vitesse}s ease`;
+        }
+        
+    };
     function Fdistance(x1, y1, x2, y2) {
         const dx = x2 - x1;
         const dy = y2 - y1;
