@@ -1,6 +1,6 @@
 window.onload = function() {
-    boule.style.left = `${0}px`;
-    boule.style.top = `${0}px`;
+    boule.style.left = 0px;
+    boule.style.top = 0px;
     function couleur() {
         color = "#";
         couleur = "ABCDEF123456789";
