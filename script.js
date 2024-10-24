@@ -8,9 +8,9 @@ window.onload = function() {
         return color;
     }
     document.getElementById('anatole').style.color = couleur();
-    let compteur = localStorage.getItem('compteur') ? parseInt(localStorage.getItem('compteur')) : 0;
+    compteur = localStorage.getItem('compteur') ? parseInt(localStorage.getItem('compteur')) : 0;
     document.getElementById('compteur').innerText = compteur;
-    let vitesse = 0.6;
+    vitesse = 0.6;
 
     document.getElementById('plus').onclick = function() {
         compteur += 1;
