@@ -50,6 +50,8 @@ h1{
     font-size: 100px;                       
     text-align : center;
     margin-top: 200px;
+    position: relative;
+    z-index: 7;
 }
 div{
     text-align: center;
@@ -79,11 +81,24 @@ div{
     justify-content: center;
     font-size: 15px;
     position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: left 0.12s ease, top 0.12s ease;
-    z-index: 0;
+	bottom: 0;
+	left:   0;
+	transition: left 0.12s ease, top 0.12s ease;
+	z-index: 2;
 }
-#anatole{
-	z-index:1;
+#bouletest{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    position: absolute;
+	bottom: 220;
+	left:   570;
+	transition: left 0.12s ease, top 0.12s ease;
+	z-index: auto;
 }
