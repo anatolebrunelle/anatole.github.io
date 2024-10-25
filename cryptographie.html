@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptographie</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="crypto.js" defer></script>
+</head>
+<body>
+    <p style="font-size: larger;">Pour crypter:</p> 
+    <input id="normal" type="text" placeholder="Entrez le texte à crypter" oninput="crypter(); clearcrypte()">
+    
+    <p style="font-size: larger;">Pour décrypter:</p>
+    <input id="crypte" type="text" placeholder="Entrez le texte à décrypter" oninput="decrypter(); clearnormal()">
+    <p id="resultat"></p>
+</body>
+</html>
